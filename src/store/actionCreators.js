@@ -9,10 +9,9 @@ export function setImagePath(newPath) {
   return action;
 }
 
-export function fetchImages(data) {
+export function fetchImages() {
   const action = {
     type: actionTypes.FETCH_DATA,
-    payload: data.message,
   };
   return action;
 }

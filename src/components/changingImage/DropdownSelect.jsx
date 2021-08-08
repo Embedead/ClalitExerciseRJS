@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { imageLut } from "../misc/imgLUT";
 import { getRandomDogImg } from "../../api/basicApi";
 import { useDispatch, useSelector } from "react-redux";
-import { setImagePath } from "../../store/actionCreators";
+import { setImagePath, fetchImages } from "../../store/actionCreators";
 
 const DropdownContainer = styled.div`
   width: 100%;
@@ -22,13 +22,15 @@ export const DropdownSelect = () => {
   const dispatch = useDispatch();
   const currentPath = useSelector((state) => state.currentPath);
   const { Image1, Image2, Image3, Image4 } = imageLut();
+  console.log("current path is", currentPath);
 
   const handleClick = () => {
-    getRandomDogImg()
-      .then((result) => result.json())
-      .then((json) => {
-        dispatch(setImagePath(json.message));
-      });
+    // getRandomDogImg()
+    //   .then((result) => result.json())
+    //   .then((json) => {
+    //     dispatch(setImagePath(json.message));
+    //   });
+    dispatch(fetchImages());
   };
 
   return (

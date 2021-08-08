@@ -1,4 +1,5 @@
 import * as actionTypes from "./actionTypes";
+import { fetchImages } from "./middlewareFunctions";
 import { imageLut } from "../components/misc/imgLUT";
 
 const { Image1 } = imageLut();
@@ -13,9 +14,7 @@ const reducer = (state = initialState, action) => {
         currentPath: action.newPath,
       };
     case actionTypes.FETCH_DATA:
-      return {
-        ...state,
-      };
+      return fetchImages();
     default:
       return state;
   }
