@@ -2,7 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { ShowImage } from "./ShowImage";
 import { DropdownSelect } from "./DropdownSelect";
-import { imageLut } from "../misc/imgLUT";
+import { CustomLabel } from "../CustomLabel";
+import { useSelector } from "react-redux";
 const Container = styled.div`
   margin: 0.5rem;
   padding: 0.5rem;
@@ -15,13 +16,18 @@ const Container = styled.div`
 `;
 
 export const ChangingImage = () => {
-  const { Image1 } = imageLut();
-  const [currentPath, setCurrentPath] = React.useState(Image1);
-
+  const images = useSelector((state) => state.images);
+  console.log("images array is", images);
   return (
     <Container>
-      <ShowImage />
+      <CustomLabel>
+        No dogs were harmed in the making of this assignment
+      </CustomLabel>
       <DropdownSelect />
+      {images &&
+        images.map((item, index) => {
+          return <ShowImage key={index} imagePath={item} />;
+        })}
     </Container>
   );
 };

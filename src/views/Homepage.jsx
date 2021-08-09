@@ -1,20 +1,21 @@
 import React from "react";
 import { ChangingImage } from "../components/changingImage";
 import styled from "styled-components";
+import { Navbar } from "../components/navbar";
 const HomepageContainer = styled.div`
   position: absolute;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   background-color: aquamarine;
-  /* padding: 0.5rem; */
-  overflow: hidden;
 `;
 
 export const HomepageView = () => {
   return (
     <HomepageContainer>
+      <Navbar />
       <ChangingImage />
     </HomepageContainer>
   );
