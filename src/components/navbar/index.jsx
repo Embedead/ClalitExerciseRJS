@@ -12,22 +12,30 @@ const NavContainer = styled.div`
   border-radius: 8px;
 `;
 
-const NavLink = styled.span`
+const NavLink = styled(Link)`
   background-color: ${(props) => (props.active ? "aquamarine" : "white")};
   color: ${(props) => (props.active ? "white" : "black")};
   font-size: 18px;
   font-weight: 700;
   padding: 0.25rem;
   margin: 0.25rem;
+  text-decoration: none;
+  border-radius: 4px;
 `;
 
 export const Navbar = () => {
   const location = useLocation();
   return (
     <NavContainer>
-      <Link to="/">
-        <NavLink active={location.pathname === "/"}>Home</NavLink>
-      </Link>
+      <NavLink to="/" active={location.pathname === "/"}>
+        Home
+      </NavLink>
+      <NavLink to="/breedA" active={location.pathname === "/breedA"}>
+        breed A
+      </NavLink>
+      <NavLink to="/breedB" active={location.pathname === "/breedB"}>
+        breed B
+      </NavLink>
     </NavContainer>
   );
 };
