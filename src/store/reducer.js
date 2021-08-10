@@ -1,5 +1,7 @@
 import * as actionTypes from "./actionTypes";
 import { imageLut } from "../components/misc/imgLUT";
+import { combineReducers } from "redux";
+import { connectRouter } from "connected-react-router";
 
 const { Image1 } = imageLut();
 
@@ -27,4 +29,8 @@ const reducer = (state = initialState, action) => {
   }
 };
 
-export default reducer;
+export const createRootReducer = (history) =>
+  combineReducers({
+    router: connectRouter(history),
+    dogReducer: reducer,
+  });

@@ -1,5 +1,4 @@
 import React from "react";
-import { ChangingImage } from "../components/changingImage";
 import styled from "styled-components";
 import { Navbar } from "../components/navbar";
 const HomepageContainer = styled.div`
@@ -12,11 +11,11 @@ const HomepageContainer = styled.div`
   background-color: aquamarine;
 `;
 
-export const HomepageView = () => {
+export const HomepageView = ({ children }) => {
   return (
     <HomepageContainer>
       <Navbar />
-      <ChangingImage />
+      {children}
     </HomepageContainer>
   );
 };

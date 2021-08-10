@@ -7,6 +7,7 @@ import {
   fetchSubBreeds,
 } from "../../store/thunkActions";
 import { useForm } from "react-hook-form";
+import { push } from "connected-react-router";
 
 const DropdownContainer = styled.div`
   display: flex;
@@ -31,11 +32,12 @@ const CustomSelect = styled.select`
   margin-right: 0.25rem;
 `;
 
-const Submit = styled.input`
+const Submit = styled.button`
   margin: 0.5rem;
   background-color: aquamarine;
   border-radius: 6px;
   font-size: 18px;
+  border-style: none;
 `;
 
 const SubmitRow = styled.span`
@@ -82,8 +84,8 @@ export const DropdownSelect = () => {
     }
   };
   const dispatch = useDispatch();
-  const breeds = useSelector((state) => state.breedList);
-  const subBreeds = useSelector((state) => state.subBreedList);
+  const breeds = useSelector((state) => state.dogReducer.breedList);
+  const subBreeds = useSelector((state) => state.dogReducer.subBreedList);
   const breedWatch = watch("breedSelect");
 
   React.useEffect(() => {
@@ -107,7 +109,8 @@ export const DropdownSelect = () => {
             <option value="" disabled>
               -select breed-
             </option>
-            {breeds.length !== 0 &&
+            {breeds &&
+              breeds?.length !== 0 &&
               getBreedArray(breeds).map((item, index) => {
                 return (
                   <option key={index} value={item}>
@@ -116,7 +119,7 @@ export const DropdownSelect = () => {
                 );
               })}
           </CustomSelect>
-          {subBreeds.length !== 0 && (
+          {subBreeds && subBreeds?.length !== 0 ? (
             <CustomSelect
               defaultValue=""
               {...register("subBreedSelect", { required: true })}
@@ -132,7 +135,7 @@ export const DropdownSelect = () => {
                 );
               })}
             </CustomSelect>
-          )}
+          ) : null}
           <CustomInput {...register("numOfImgs", { min: "1", max: "6" })} />
         </DropdownRow>
         {errors.breedSelect && (
@@ -151,7 +154,7 @@ export const DropdownSelect = () => {
           </DropdownRow>
         )}
         <SubmitRow>
-          <Submit type="submit" />
+          <Submit type="submit">SUBMIT</Submit>
         </SubmitRow>
       </form>
     </DropdownContainer>

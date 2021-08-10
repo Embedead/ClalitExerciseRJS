@@ -16,8 +16,7 @@ const Container = styled.div`
 `;
 
 export const ChangingImage = () => {
-  const images = useSelector((state) => state.images);
-  console.log("images array is", images);
+  const images = useSelector((state) => state.dogReducer.images);
   return (
     <Container>
       <CustomLabel>

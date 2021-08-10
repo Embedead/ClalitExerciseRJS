@@ -1,17 +1,29 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { HomepageView } from "./views/Homepage";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
+import { Switch, Route } from "react-router-dom";
+import { ConnectedRouter } from "connected-react-router";
+import { history } from "./store/configureStore";
+import { ChangingImage } from "./components/changingImage";
+import { AkitaBreed } from "./components/breed/Akita";
+import { ShepherdBreed } from "./components/breed/GermanShepard";
 function App() {
   return (
-    <Router>
+    <ConnectedRouter history={history}>
       <Switch>
-        <Route path="/">
-          <HomepageView />
-        </Route>
+        <HomepageView>
+          <Route path="/akita">
+            <AkitaBreed />
+          </Route>
+          <Route path="/germanshepherd">
+            <ShepherdBreed />
+          </Route>
+          <Route exact path="/">
+            <ChangingImage />
+          </Route>
+        </HomepageView>
       </Switch>
-    </Router>
+    </ConnectedRouter>
   );
 }
 

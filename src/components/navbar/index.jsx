@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocation, useHistory, Link } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import styled from "styled-components";
 
 const NavContainer = styled.div`
@@ -25,16 +25,20 @@ const NavLink = styled(Link)`
 
 export const Navbar = () => {
   const location = useLocation();
+  console.log("location is", location);
   return (
     <NavContainer>
       <NavLink to="/" active={location.pathname === "/"}>
-        Home
+        Search
       </NavLink>
-      <NavLink to="/breedA" active={location.pathname === "/breedA"}>
-        breed A
+      <NavLink to="/akita" active={location.pathname === "/akita"}>
+        Akita
       </NavLink>
-      <NavLink to="/breedB" active={location.pathname === "/breedB"}>
-        breed B
+      <NavLink
+        to="/germanshepherd"
+        active={location.pathname === "/germanshepherd"}
+      >
+        German Shepherd
       </NavLink>
     </NavContainer>
   );
