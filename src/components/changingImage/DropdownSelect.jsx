@@ -73,8 +73,7 @@ export const DropdownSelect = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log("data is", data);
-    if (data.subBreedSelect) {
+    if (subBreeds.length !== 0) {
       dispatch(
         fetchImages(data.breedSelect, data.subBreedSelect, data.numOfImgs)
       );
