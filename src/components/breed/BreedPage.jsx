@@ -9,6 +9,20 @@ const BreedContainer = styled.div`
   border-radius: 8px;
   background-color: white;
   padding: 0.5rem;
+  box-shadow: 0px 4px 15px 4px rgba(0, 0, 0, 0.3);
+  position: relative;
+`;
+
+const RefreshButton = styled.span`
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  &:hover {
+    color: aquamarine;
+  }
 `;
 
 export const BreedPage = ({ breedName, subBreedName }) => {
@@ -21,6 +35,11 @@ export const BreedPage = ({ breedName, subBreedName }) => {
 
   return (
     <BreedContainer>
+      <RefreshButton
+        onClick={() => dispatch(fetchImage(breedName, subBreedName))}
+      >
+        new
+      </RefreshButton>
       <ShowImage imagePath={breedImage[0]} />
     </BreedContainer>
   );

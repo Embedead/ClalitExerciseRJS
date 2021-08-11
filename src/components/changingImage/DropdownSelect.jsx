@@ -42,7 +42,8 @@ const Submit = styled.button`
   cursor: pointer;
   box-shadow: 0px 4px 8px 8px rgba(0, 0, 0, 0.05);
   &:hover {
-    box-shadow: 0px 4px 8px 8px rgba(0, 0, 0, 0.1);
+    background-color: black;
+    color: aquamarine;
   }
 `;
 
@@ -117,7 +118,7 @@ export const DropdownSelect = () => {
                 </option>
               ))}
           </CustomSelect>
-          {subBreeds && (
+          {subBreeds?.length !== 0 && (
             <CustomSelect
               defaultValue=""
               {...register("subBreedSelect", { required: true })}
@@ -132,7 +133,9 @@ export const DropdownSelect = () => {
               ))}
             </CustomSelect>
           )}
-          <CustomInput {...register("numOfImgs", { min: "1", max: "6" })} />
+          <CustomInput
+            {...register("numOfImgs", { min: "1", max: "6", required: true })}
+          />
         </DropdownRow>
         {/* error handeling */}
         {errors.breedSelect && (

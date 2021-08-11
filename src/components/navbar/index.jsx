@@ -16,13 +16,15 @@ const NavContainer = styled.div`
 
 const NavLink = styled(Link)`
   background-color: ${(props) => (props.active ? "aquamarine" : "white")};
-  color: ${(props) => (props.active ? "white" : "black")};
   font-size: 18px;
   font-weight: 700;
   padding: 0.25rem;
   margin: 0.25rem;
   text-decoration: none;
   border-radius: 4px;
+  &:hover {
+    background-color: aquamarine;
+  }
 `;
 
 export const Navbar = () => {

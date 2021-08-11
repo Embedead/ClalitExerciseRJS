@@ -13,6 +13,7 @@ const ResultsContainer = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  box-shadow: 0px 4px 15px 4px rgba(0, 0, 0, 0.3);
 `;
 
 export const ResultsPage = () => {
