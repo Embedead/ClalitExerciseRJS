@@ -38,6 +38,12 @@ const Submit = styled.button`
   border-radius: 6px;
   font-size: 18px;
   border-style: none;
+  padding: 0.25rem;
+  cursor: pointer;
+  box-shadow: 0px 4px 8px 8px rgba(0, 0, 0, 0.05);
+  &:hover {
+    box-shadow: 0px 4px 8px 8px rgba(0, 0, 0, 0.1);
+  }
 `;
 
 const SubmitRow = styled.span`

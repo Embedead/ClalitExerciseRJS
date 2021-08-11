@@ -13,6 +13,7 @@ const Container = styled.div`
   flex-direction: column;
   width: 50%;
   background-color: white;
+  box-shadow: 0px 5px 17px 3px rgba(0, 0, 0, 0.66);
 `;
 
 export const ChangingImage = () => {

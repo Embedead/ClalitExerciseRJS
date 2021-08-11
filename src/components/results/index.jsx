@@ -10,6 +10,8 @@ const ResultsContainer = styled.div`
   padding: 0.5rem;
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const ResultsPage = () => {

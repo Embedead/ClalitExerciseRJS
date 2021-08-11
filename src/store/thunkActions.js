@@ -19,7 +19,6 @@ export const fetchImages = (breedName, subBreedName, numberOfImages) => {
     };
   } else {
     return (dispatch) => {
-      console.log("here");
       fetch(
         "https://dog.ceo/api/breed/" +
           breedName +
@@ -51,7 +50,6 @@ export const fetchImage = (breedName, subBreedName) => {
     };
   } else {
     return (dispatch) => {
-      console.log("here");
       fetch("https://dog.ceo/api/breed/" + breedName + "/images/random/" + "1")
         .then((result) => result.json())
         .then((json) => dispatch(setImages(json.message)))

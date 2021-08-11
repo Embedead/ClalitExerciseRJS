@@ -1,5 +1,6 @@
 import React from "react";
-import { useLocation, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 
 const NavContainer = styled.div`
@@ -10,6 +11,7 @@ const NavContainer = styled.div`
   background-color: rgb(255, 255, 255);
   margin: 0.5rem;
   border-radius: 8px;
+  box-shadow: 0px 4px 4px 4px rgba(0, 0, 0, 0.1);
 `;
 
 const NavLink = styled(Link)`
@@ -24,20 +26,17 @@ const NavLink = styled(Link)`
 `;
 
 export const Navbar = () => {
-  const location = useLocation();
-  console.log("location is", location);
+  const pathname = useSelector((state) => state.router.location.pathname);
+  console.log("pathname is", pathname);
   return (
     <NavContainer>
-      <NavLink to="/" active={location.pathname === "/"}>
+      <NavLink to="/" active={pathname === "/"}>
         Search
       </NavLink>
-      <NavLink to="/akita" active={location.pathname === "/akita"}>
+      <NavLink to="/akita" active={pathname === "/akita"}>
         Akita
       </NavLink>
-      <NavLink
-        to="/germanshepherd"
-        active={location.pathname === "/germanshepherd"}
-      >
+      <NavLink to="/germanshepherd" active={pathname === "/germanshepherd"}>
         German Shepherd
       </NavLink>
     </NavContainer>
