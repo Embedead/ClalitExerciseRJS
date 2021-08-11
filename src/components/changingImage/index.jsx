@@ -24,10 +24,6 @@ export const ChangingImage = () => {
         No dogs were harmed in the making of this assignment
       </CustomLabel>
       <DropdownSelect />
-      {images &&
-        images.map((item, index) => {
-          return <ShowImage key={index} imagePath={item} />;
-        })}
     </Container>
   );
 };

@@ -7,8 +7,7 @@ import {
   fetchSubBreeds,
 } from "../../store/thunkActions";
 import { useForm } from "react-hook-form";
-import { push } from "connected-react-router";
-
+import { Error } from "./ErrorMessage";
 const DropdownContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -30,6 +29,7 @@ const CustomSelect = styled.select`
   font-weight: 600;
   outline: none;
   margin-right: 0.25rem;
+  cursor: pointer;
 `;
 
 const Submit = styled.button`
@@ -38,7 +38,7 @@ const Submit = styled.button`
   border-radius: 6px;
   font-size: 18px;
   border-style: none;
-  padding: 0.25rem;
+  padding: 0.5rem;
   cursor: pointer;
   box-shadow: 0px 4px 8px 8px rgba(0, 0, 0, 0.05);
   &:hover {
@@ -116,16 +116,13 @@ export const DropdownSelect = () => {
               -select breed-
             </option>
             {breeds &&
-              breeds?.length !== 0 &&
-              getBreedArray(breeds).map((item, index) => {
-                return (
-                  <option key={index} value={item}>
-                    {item}
-                  </option>
-                );
-              })}
+              getBreedArray(breeds).map((item, index) => (
+                <option key={index} value={item}>
+                  {item}
+                </option>
+              ))}
           </CustomSelect>
-          {subBreeds && subBreeds?.length !== 0 ? (
+          {subBreeds && (
             <CustomSelect
               defaultValue=""
               {...register("subBreedSelect", { required: true })}
@@ -133,31 +130,24 @@ export const DropdownSelect = () => {
               <option value="" disabled>
                 -select sub-breed-
               </option>
-              {subBreeds.map((item, index) => {
-                return (
-                  <option key={"sub" + index} value={item}>
-                    {item}
-                  </option>
-                );
-              })}
+              {subBreeds.map((item, index) => (
+                <option key={"sub" + index} value={item}>
+                  {item}
+                </option>
+              ))}
             </CustomSelect>
-          ) : null}
+          )}
           <CustomInput {...register("numOfImgs", { min: "1", max: "6" })} />
         </DropdownRow>
+        {/* error handeling */}
         {errors.breedSelect && (
-          <DropdownRow>
-            <ErrorLabel>Selecting a breed is required</ErrorLabel>
-          </DropdownRow>
+          <Error message="Selecting a breed is required" />
         )}
         {errors.subBreedSelect && (
-          <DropdownRow>
-            <ErrorLabel>Selecting a sub-breed is required</ErrorLabel>
-          </DropdownRow>
+          <Error message="Selecting a sub-breed is required" />
         )}
         {errors.numOfImgs && (
-          <DropdownRow>
-            <ErrorLabel>Number of pictures must be between 1 and 6</ErrorLabel>
-          </DropdownRow>
+          <Error message="Number of images must be between 1 and 6" />
         )}
         <SubmitRow>
           <Submit type="submit">SUBMIT</Submit>

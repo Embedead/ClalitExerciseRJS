@@ -9,6 +9,7 @@ const ResultsContainer = styled.div`
   background-color: white;
   padding: 0.5rem;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -20,7 +21,7 @@ export const ResultsPage = () => {
   return (
     <ResultsContainer>
       {images &&
-        images.legnth != 0 &&
+        images.legnth !== 0 &&
         images.map((item, index) => {
           return <ShowImage key={index} imagePath={item} />;
         })}
