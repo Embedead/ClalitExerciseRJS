@@ -1,9 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { ShowImage } from "./ShowImage";
 import { DropdownSelect } from "./DropdownSelect";
 import { CustomLabel } from "../CustomLabel";
-import { useSelector } from "react-redux";
 const Container = styled.div`
   margin: 0.5rem;
   padding: 0.5rem;
@@ -17,7 +15,6 @@ const Container = styled.div`
 `;
 
 export const ChangingImage = () => {
-  const images = useSelector((state) => state.dogReducer.images);
   return (
     <Container>
       <CustomLabel>

@@ -54,11 +54,6 @@ const SubmitRow = styled.span`
   justify-content: center;
 `;
 
-const ErrorLabel = styled.label`
-  color: red;
-  font-weight: 700;
-`;
-
 const CustomInput = styled.input`
   outline: none;
   border-style: none;
