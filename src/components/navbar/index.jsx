@@ -1,7 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+export const vertJump = keyframes`
+  from{
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0px);
+  }
+`;
 
 const NavContainer = styled.div`
   display: flex;
@@ -12,6 +23,7 @@ const NavContainer = styled.div`
   margin: 0.5rem;
   border-radius: 8px;
   box-shadow: 0px 4px 4px 4px rgba(0, 0, 0, 0.1);
+  animation: ${vertJump} 0.25s linear;
 `;
 
 const NavLink = styled(Link)`

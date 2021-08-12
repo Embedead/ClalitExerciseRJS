@@ -3,8 +3,10 @@ import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchImage } from "../../store/thunkActions";
 import { ShowImage } from "../changingImage/ShowImage";
+import { vertJump } from "../navbar";
 
 const BreedContainer = styled.div`
+  animation: ${vertJump} 0.25s linear;
   width: 75%;
   border-radius: 8px;
   background-color: white;

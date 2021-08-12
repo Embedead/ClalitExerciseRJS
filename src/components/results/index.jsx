@@ -2,8 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
 import { ShowImage } from "../changingImage/ShowImage";
+import { vertJump } from "../navbar";
 
 const ResultsContainer = styled.div`
+  animation: ${vertJump} 0.25s linear;
   width: 85%;
   border-radius: 10px;
   background-color: white;

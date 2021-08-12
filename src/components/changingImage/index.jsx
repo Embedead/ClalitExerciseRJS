@@ -2,7 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import { DropdownSelect } from "./DropdownSelect";
 import { CustomLabel } from "../CustomLabel";
+import { vertJump } from "../navbar/index";
+
 const Container = styled.div`
+  animation: ${vertJump} 0.25s linear;
   margin: 0.5rem;
   padding: 0.5rem;
   display: flex;
