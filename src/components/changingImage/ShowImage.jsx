@@ -18,7 +18,11 @@ const ImgContainer = styled.img`
 export const ShowImage = ({ imagePath }) => {
   return (
     <ShowImageContainer>
-      <ImgContainer src={imagePath} alt="something here" />
+      <ImgContainer
+        data-testid="img-cont"
+        src={imagePath}
+        alt="something here"
+      />
     </ShowImageContainer>
   );
 };

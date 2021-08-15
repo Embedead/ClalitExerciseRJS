@@ -134,12 +134,16 @@ export const DropdownSelect = () => {
             </CustomSelect>
           )}
           <CustomInput
+            data-testid="input-number"
             {...register("numOfImgs", { min: "1", max: "6", required: true })}
           />
         </DropdownRow>
         {/* error handeling */}
         {errors.breedSelect && (
-          <Error message="Selecting a breed is required" />
+          <Error
+            message="Selecting a breed is required"
+            data-testid="breed-select-error"
+          />
         )}
         {errors.subBreedSelect && (
           <Error message="Selecting a sub-breed is required" />
@@ -148,7 +152,9 @@ export const DropdownSelect = () => {
           <Error message="Number of images must be between 1 and 6" />
         )}
         <SubmitRow>
-          <Submit type="submit">SUBMIT</Submit>
+          <Submit data-testid="submit-btn" type="submit">
+            SUBMIT
+          </Submit>
         </SubmitRow>
       </form>
     </DropdownContainer>
