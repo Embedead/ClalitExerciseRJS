@@ -19,6 +19,7 @@ const ResultsContainer = styled.div`
 `;
 
 export const ResultsPage = () => {
+  //comment
   const images = useSelector((state) => state.dogReducer.images);
 
   return (
