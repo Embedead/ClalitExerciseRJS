@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`button props change color 1`] = `
+<button
+  class="sc-bdnxRM jJUQsV"
+  color="green"
+>
+  SUBMIT
+</button>
+`;

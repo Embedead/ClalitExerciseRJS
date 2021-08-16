@@ -7,7 +7,8 @@ import {
   fetchSubBreeds,
 } from "../../store/thunkActions";
 import { useForm } from "react-hook-form";
-import { Error } from "./ErrorMessage";
+import { Error } from "./formComponents/ErrorMessage";
+import { SubmitButton } from "./formComponents/SubmitButton";
 const DropdownContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -30,21 +31,6 @@ const CustomSelect = styled.select`
   outline: none;
   margin-right: 0.25rem;
   cursor: pointer;
-`;
-
-const Submit = styled.button`
-  margin: 0.5rem;
-  background-color: aquamarine;
-  border-radius: 6px;
-  font-size: 18px;
-  border-style: none;
-  padding: 0.5rem;
-  cursor: pointer;
-  box-shadow: 0px 4px 8px 8px rgba(0, 0, 0, 0.05);
-  &:hover {
-    background-color: black;
-    color: aquamarine;
-  }
 `;
 
 const SubmitRow = styled.span`
@@ -152,9 +138,9 @@ export const DropdownSelect = () => {
           <Error message="Number of images must be between 1 and 6" />
         )}
         <SubmitRow>
-          <Submit data-testid="submit-btn" type="submit">
+          <SubmitButton data-testid="submit-btn" type="submit">
             SUBMIT
-          </Submit>
+          </SubmitButton>
         </SubmitRow>
       </form>
     </DropdownContainer>
