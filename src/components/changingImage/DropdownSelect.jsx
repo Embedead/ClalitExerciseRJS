@@ -74,7 +74,7 @@ export const DropdownSelect = () => {
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm();
+  } = useForm({ mode: "onBlur" });
 
   const onSubmit = (data) => {
     if (subBreeds.length !== 0) {
